@@ -1,0 +1,26 @@
+doctype html 
+
+mixin navLink(href, name) 
+  li 
+    a.main-nav-link(href=`${href}`) `${name}`
+
+html 
+  head 
+    block head 
+      meta(charset='UTF-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')
+      link(rel='stylesheet' href='/css/homepage.css')
+      link(rel='stylesheet' href='/css/general.css')
+      link(rel='stylesheet' href='/css/pages.css')
+      link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Quattrocento&display=swap" rel="stylesheet")
+      title Lazeeza | #{title}
+
+  body 
+    include _header
+
+    block content 
+
+    include _footer
+
+    script(src='/js/bundled/index.js')
+    script(src='/js/user-script.js')

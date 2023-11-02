@@ -1,0 +1,28 @@
+extends base
+
+block content 
+  h6.breadcrum
+    a.breadcrum-link(href='/')  Home
+    p.breadcrum-link /
+    a.breadcrum-link(href='/collections')  Collections
+    p.breadcrum-link /
+    a.breadcrum-link(href=`/collections/${collection}`) #{title}
+
+  .products-section-container
+    h1.products-heading #{title}
+    .products-container
+
+      each product in products
+        .product-container
+          div
+            a.product-link(href=`/collections/${collection}/${product.slug}`)
+              img.product-image(src=`../imgs/products/${product.image}` alt=`${product.name}`)
+              div
+                h4.product-name #{product.name}
+                h4.product-price= `Now $${product.sellingPrice}`
+                h4.product-original-price= `Reg. $${product.originalPrice}`
+                .product-btns-container
+                  a.product-btn.view-details(href=`/collections/${collection}/${product.slug}`) View Details
+                  a.product-btn.add-to-bag(href=`/collections/${collection}/${product.slug}`) Add to Bag
+      else 
+        h1.no-err No results. Try again later

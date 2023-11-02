@@ -1,0 +1,310 @@
+/* CSS FILE FOR REUSABLE CLASSES OVER ALL HTML DOCUMENTS */
+
+/* ---------------------------- */
+/* MAIN HTML ELEMENTS */
+/* ---------------------------- */
+
+/* Global reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 10px = 1rem
+  10px / 16px (1rem) = 0.625 (62.5%) */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+
+  /* Default line height, font-weight and color */
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+  border-bottom: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------- */
+/* GENERAL REUSEABLE COMPONENTS */
+/* ---------------------------- */
+
+/* Simple helper flex layouts */
+.flex {
+  display: flex;
+}
+
+.flex-align {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------------------- */
+/* REUSEABLE BREADCRUM */
+/* ---------------------------- */
+
+.breadcrum {
+  font-size: 1.2rem;
+  margin: 2rem 0 0 30rem;
+  text-decoration: none;
+
+  display: flex;
+  gap: 2rem;
+}
+
+.breadcrum-link:link,
+.breadcrum-link:visited {
+  text-decoration: none;
+  color: rgba(30, 53, 94, 255);
+}
+
+.breadcrum-link:hover,
+.breadcrum-link:active {
+  text-decoration: underline;
+}
+
+/* ---------------------------- */
+/* REUSEABLE INCREMENT QTY BTN */
+/* ---------------------------- */
+
+.incqty-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.incqty-input-container {
+  width: 13rem;
+  display: flex;
+  font-size: 2.5rem;
+}
+
+.increment-qty {
+  width: 6rem;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.increment-btns {
+  padding: 0rem 0.8rem;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.7);
+
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.increment-btns:hover {
+  cursor: pointer;
+}
+
+.increment {
+  border-left: none;
+}
+
+.decrement {
+  border-right: none;
+}
+
+/* Cart specific */
+
+.incqty-cart {
+  height: 3rem;
+}
+
+/* ---------------------------- */
+/* REUSEABLE PRODUCTS PAGE */
+/* ---------------------------- */
+
+/* Layout */
+.products-section-container {
+  width: 130rem;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+
+/* Content */
+.products-heading {
+  font-size: 2.7rem;
+  font-weight: 600;
+  text-align: left;
+  color: #000;
+  border-bottom: 2px solid rgba(30, 53, 94, 255);
+  padding-bottom: 3rem;
+  margin: 4rem 0rem;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.product-link {
+  text-decoration: none;
+}
+
+.product-image {
+  width: 42rem;
+}
+
+.product-name {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  color: red;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.product-original-price {
+  font-size: 1.4rem;
+  font-weight: 300;
+  text-align: center;
+  color: #000;
+}
+
+.product-container {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.product-container:hover {
+  box-shadow: 0 0 0 1px rgba(30, 53, 94, 255);
+  transition: 0.2s;
+}
+
+/* CTA */
+.product-btn {
+  text-decoration: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+}
+
+.product-btns-container {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1.1px;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.view-details:link,
+.view-details:visited {
+  color: rgba(30, 53, 94, 255);
+  box-shadow: inset 0 0 0 1px rgba(30, 53, 94, 255);
+}
+
+.add-to-bag:link,
+.add-to-bag:visited {
+  color: #fff;
+  background-color: rgba(30, 53, 94, 255);
+}
+
+.add-to-bag:hover,
+.add-to-bag:active {
+  background-color: #1b3055;
+}
+
+/* Collection page */
+
+.collection-product-link-container {
+  text-decoration: none;
+}
+
+/* Alert Styling */
+
+.no-err {
+  color: #000;
+}
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 9999;
+  color: #fff !important;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 1.6rem 15rem;
+  -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+}
+
+.alert--success {
+  background-color: #20bf6b !important;
+}
+
+.alert--error {
+  background-color: #eb4d4b !important;
+}
+
+/* Pratice Order Checkout Button */
+
+.pratice-order-btn {
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: purple;
+  border: none;
+  padding: 20px 40px;
+  cursor: pointer;
+  margin-top: 5rem;
+}
+
+/* Terms and service container */
+
+.terms-of-service-container {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Error Page */
+
+.error-container {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+.error-name {
+  font-weight: bold;
+  color: #000;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
+.error-message {
+  font-weight: 600;
+  color: #000;
+  font-size: 2rem;
+}

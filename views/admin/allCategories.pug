@@ -1,0 +1,31 @@
+extends base
+
+block content 
+  .container
+    .row 
+      .col-md-12.mt-4
+        .card
+          .card-header
+            h4 All Categories
+          #category_table.card-body
+            table.table.table-bordered.table-striped
+
+              thead
+                tr
+                  th Name
+                  th Image
+                  th Visibility 
+                  th Action
+
+              tbody
+                each category in categories 
+                  tr
+                    td= category.name
+                    td
+                      img(src=`imgs/categories/${category.image}` width='150px' height='100px' alt=`${category.name}`)
+                    td= category.status ? 'Visible' : 'Hidden' 
+                    td
+                      a.btn.btn-primary(href=`/editCategory/${category.slug}`) Edit
+                      form(action='code.php' method='POST')
+                    
+                        button.btn.btn-danger.delete-category-btn(type='button' value=`${category.id}`) Delete

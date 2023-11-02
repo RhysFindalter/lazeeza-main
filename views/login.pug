@@ -1,0 +1,15 @@
+extends base
+
+block content
+  .login-container
+    p.login-heading Login
+    form.login-form
+      .login-field-container
+        label.login-field-name(for='email') Email
+        input.login-field#email(type='email' name='email' required='' maxlength='100' placeholder='Enter your email' aria-describedby='emailHelp')
+      .login-field-container
+        label.login-field-name(for='password') Password
+        input.login-field#password(type='password' name='password' required='' maxlength='100' placeholder='Enter password')
+      button.login-btn(type='submit' name='login_btn') Log in
+    a.login-link(href='/signup')
+      p.login-link-register Not a member? Register here!

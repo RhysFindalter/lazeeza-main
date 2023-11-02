@@ -1,0 +1,31 @@
+extends base
+
+block content 
+  .login-container
+    p.login-heading Create Account
+    // Login form
+    form.register-form
+
+      // Register field
+      .login-field-container
+        label.login-field-name Name
+        input#name.login-field(type='text' name='name' onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required='' maxlength='100' placeholder='Enter your name')
+      
+      .login-field-container
+        label.login-field-name(for='exampleInputEmail1') Email address
+        input#email.login-field(type='email' name='email' required='' maxlength='100' placeholder='Enter your email' aria-describedby='emailHelp')
+        // Removes ability to add whitespace in email input
+        script(type='text/javascript').
+          document.getElementById('mail').addEventListener('keydown' ,function(e) {
+          var k =e.keyCode
+          k ==32 &&e.preventDefault()
+          })
+
+      .login-field-container
+        label.login-field-name(for='exampleInputPassword1') Password
+        input#password.login-field(type='password' name='password' required='' maxlength='100' placeholder='Enter password')
+     
+      .login-field-container
+        label.login-field-name Confirm Password
+        input#confirmPassword.login-field(type='password' name='cpassword' required='' maxlength='100' placeholder='Confirm password')
+      button.login-btn(type='submit' name='register_btn') Submit

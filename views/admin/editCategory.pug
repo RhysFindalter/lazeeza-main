@@ -1,0 +1,34 @@
+extends base
+
+block content 
+  .container
+    .row
+      .col-md-12.mt-4
+        .card
+          // Edit Category Heading
+          .card-header
+            h4
+              | Edit Category
+              a.btn.btn-primary.float-end(href='/allCategories') Back
+            .card-body
+              form.edit-category-form
+                .row
+                  // Edit Category Input Field
+                  .col-md-6
+                    input.edit-category-id(type='hidden' name='id' value=`${category.id}`)
+                    label(for='') Name
+                    input.form-control.edit-category-name(type='text' name='name' value=`${category.name}` placeholder='Enter Category Name')
+                  .col-md-6 
+                    label Image
+                    input.form-control.edit-category-image(type='file' name='image')
+                    label.mt-3 Old Image
+                    input.edit-category-old-image(type="hidden" name="old-image"  value=`${category.image}`)
+                    img(src=`../imgs/categories/${category.image}` width='150px' height='100px' alt=`${category.name}`)
+                  .col-md-6
+                    label(for='') Status
+                    input.edit-category-status(type='checkbox' checked=category.status || false)
+                  .col-md-12.mt-4
+                    button.btn.btn-primary(type='submit' name='update_category_btn') Update
+
+block footer 
+  script(src='../js/bundled/index.js')

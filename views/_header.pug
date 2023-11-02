@@ -1,0 +1,20 @@
+mixin navLink(href, text) 
+  li 
+    a.main-nav-link(href=`${href}`)= `${text}`
+
+header 
+  nav.navigation 
+    a(href="/")
+      img.main-nav-logo(alt='Lazeeza logo' src='/imgs/sections/nav-logo.jpg')
+
+    ul.main-nav-list 
+      +navLink('/collections', "COLLECTIONS")
+      +navLink('/jewellery', 'JEWELLERY')
+      if user 
+         a.main-nav-link.logoutBtn(href='#') LOGOUT
+      else 
+        +navLink('/login', "LOGIN")
+      +navLink("#", 'ENGAGEMENT')
+      +navLink('#', "CONTACT")
+      +navLink('/account', 'ACCOUNT')
+      

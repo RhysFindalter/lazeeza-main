@@ -1,0 +1,23 @@
+extends base
+
+block content 
+  h6.breadcrum
+    a.breadcrum-link(href='/')  Home
+    p.breadcrum-link /
+    a.breadcrum-link(href='/collections') Collections
+
+  .products-section-container
+    h1.products-heading Collections 
+    .products-container
+
+      each category in categories
+        .product-container
+          div
+            a.product-link(href=`/collections/${category.slug}`)
+              img.product-image(src=`imgs/categories/${category.image}` alt=`${category.name}`)
+              div
+                h4.product-name #{category.name} 
+                .product-btns-container
+                  a.product-btn.view-details(href=`/collections/${category.slug}`) View Collection
+      else 
+        h1.no-err No results. Try again later

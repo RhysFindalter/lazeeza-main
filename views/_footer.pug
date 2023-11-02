@@ -1,0 +1,44 @@
+mixin footerLink(href, text) 
+  li 
+    a.footer-link(href=`${href}`)= `${text}`
+
+footer 
+  .footer-container 
+    ul.footer-list 
+      li 
+        a.footer-link(href='#')
+          img.footer-img(src="/imgs/sections/footer-logo.jpg" alt="lazeeza logo")
+      ul.footer-icon-list
+        li 
+          a.footer-icon(href="https://www.facebook.com/Lazeezajewellery?mibextid=D4KYlr")
+            ion-icon(name='logo-facebook')
+      li 
+        p.footer-copyright &copy; 2023 by Lazeeza Jewellery, All rights reserved
+
+    ul.footer-list 
+      li 
+        p.footer-list-heading(href='#') EXPLORE LAZEEZA 
+      +footerLink('#', 'Store Location')
+
+    ul.footer-list 
+      li
+        p.footer-list-heading(href='#') CUSTOMER SERVICE
+      +footerLink('#', 'Contact Us')
+      +footerLink('#', 'Shipping & Delivery')
+      +footerLink('#', 'Engraving')
+
+    ul.footer-list
+      li 
+        p.footer-list-heading(href='#') GUIDES & TIPS
+      +footerLink('#', 'Ring Sizing')
+      +footerLink('#', 'Jewellery Care Guide')
+      +footerLink('#', 'Terms & Conditions')
+
+    ul.footer-list
+      li 
+        p.footer-list-heading(href="#") SOCIAL 
+      +footerLink('#',  'Facebook')
+
+
+
+

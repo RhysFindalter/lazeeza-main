@@ -1,0 +1,41 @@
+extends base
+
+block content 
+  h6.breadcrum
+    a.breadcrum-link(href='index.php')  Home
+    p.breadcrum-link /
+    a.breadcrum-link(href='my-account.php') My Account
+
+  .table-container
+    div
+      .myacc-info-container
+        .myacc-info-actions-container
+          p.myacc-info-heading My Account
+          if user
+            a.myacc-info-logout.logoutBtn(href='#') Log Out
+        if !user
+          p.info-message You are not logged in! Please login or create an account with us below
+      
+      .orders-container
+        p.table-heading My Orders
+        table.orders-table.table-bordered.table-striped
+          thead
+            tr
+              th Order ID
+              th Tracking No.
+              th Value
+              th Ordered On
+              th Status
+              th Details
+            tbody
+              tr
+                td TEST
+                td TEST
+                td TEST
+                td TEST
+                td TEST
+                td
+                  a(href="#")
+                    button.table-btn View
+        p.orders-message
+          a(href='/jewellery') You haven&apos;t made any orders with us yet! Click here to start shopping.

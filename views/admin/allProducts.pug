@@ -1,0 +1,30 @@
+extends base
+
+block content 
+  .container
+    .row
+      .col-md-12.mt-4
+        .card
+          .card-header
+            h4 Products
+          #products_table.card-body
+            table.table.table-bordered.table-striped
+
+              thead
+                tr
+                  th Name
+                  th Image
+                  th Visibility
+                  th Edit
+                  th Delete
+              tbody
+              each product in products
+                tr
+                  td= product.name
+                  td
+                    img(src=`/imgs/products/${product.image}` width='150px' height='100px' alt=`${product.name}`)
+                  td= product.status ? 'Visible' : 'Hidden'
+                  td
+                    a.btn.btn-sm.btn-primary(href=`/editProduct/${product.slug}`) Edit
+                  td
+                    button.btn.btn-sm.btn-danger.delete-product-btn(type='button' value=`${product.id}`) Delete

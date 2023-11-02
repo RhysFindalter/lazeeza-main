@@ -1,0 +1,53 @@
+extends base
+
+block content 
+  .container
+    .row.mt-4
+      .col-md-12
+        .card
+          // Add Product Section Heading
+          .card-header
+            h4 Add Product
+          .card-body
+            form.create-product-form
+              .row
+                .col-md-12
+                  label.mb-0 Select Category
+                  select.form-select.mb-2.create-product-category(name='category_id')
+                    option(selected='') Select Category
+
+                    each category in categories
+                      option(value=`${category.id}`)= category.name
+
+                .col-md-6
+                  label.mb-0 Name
+                  input.form-control.mb-2.create-product-name(type='text' required='' name='name' maxlength='100' placeholder='Enter Category Name')
+                .col-md-12
+                  label.mb-0 Small Description
+                  textarea.form-control.mb-2.create-product-small-description(rows='3' required='' name='small_description' maxlength='100' placeholder='Enter small description')
+                .col-md-12
+                  label.mb-0 Description
+                  textarea.form-control.mb-2.create-product-description(rows='3' required='' name='description' maxlength='100' placeholder='Enter description')
+                .col-md-6
+                  label.mb-0 Original Price
+                  input.form-control.mb-2.create-product-original-price(type='text' required='' name='original_price' maxlength='10' placeholder='Enter Original Price')
+                .col-md-6
+                  label.mb-0 Selling Price
+                  input.form-control.mb-2.create-product-selling-price(type='text' required='' name='selling_price' maxlength='10' placeholder='Enter Seliing')
+                .col-md-12
+                  label.mb-0 Upload Image
+                  input.form-control.mb-2.create-product-image(type='file' required='' name='image')
+                .row
+                  .col-md-6
+                    label.mb-0 Quantity
+                    input.form-control.mb-2.create-product-quantity(type='number' required='' name='qty' min='1' max='10' placeholder='Enter Quantity')
+                  .col-md-3
+                    label.mb-0 Status
+                    br
+                    input.create-product-status(type='checkbox' checked='true' name='status')
+                  .col-md-3
+                    label.mb-0 Trending
+                    br
+                    input.create-product-trending(type='checkbox' name='trending')
+                .col-md-12
+                  button.btn.btn-primary(type='submit' name='add_product_btn') Save

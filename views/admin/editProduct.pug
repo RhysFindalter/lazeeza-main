@@ -1,0 +1,60 @@
+extends base
+
+block content
+  .container
+    .row
+      .col-md-12.mt-4
+        .card
+          .card-header
+            h4 Edit product
+              a.btn.btn-primary.float-end(href='/allProducts') Back
+          .card-body
+            form.edit-product-form
+              .row
+                .col-md-12
+                  label.mb-0 Select Category
+                  select.form-select.mb-2.edit-product-category(name='category_id')
+                    option(selected='') Select Category
+
+                    each category in categories
+                      option(value=`${category.id}`)= category.name
+                      
+                input.edit-product-id(type='hidden' name='product_id' value=`${product.id}`)
+                .col-md-6
+                  label.mb-0 Name
+                  input.form-control.mb-2.edit-product-name(type='text' name='name' value=`${product.name}` placeholder='Enter Category Name')
+                .col-md-12
+                  label.mb-0 Small Description
+                  textarea.form-control.mb-2.edit-product-small-description(rows='3' name='small_description' placeholder='Enter small description')= product.smallDescription 
+                .col-md-12
+                  label.mb-0 Description
+                  textarea.form-control.mb-2.edit-product-description(rows='3' name='description' placeholder='Enter description')= product.description 
+                .col-md-6
+                  label.mb-0 Original  Price
+                  input.form-control.mb-2.edit-product-original-price(type='text' name='original_price' value=`${product.originalPrice}` placeholder='Enter Original Price')
+                .col-md-6
+                  label.mb-0 Selling Price
+                  input.form-control.mb-2.edit-product-selling-price(type='text' name='selling_price' value=`${product.sellingPrice}` placeholder='Enter Seliing')
+                .col-md-6 
+                  label Image
+                  input.form-control.edit-product-image(type='file' name='image')
+                  label.mt-3 Old Image
+                  input.edit-product-old-image(type="hidden" name="old-image"  value=`${product.image}`)
+                  img(src=`../imgs/products/${product.image}` width='150px' height='100px' alt=`${product.name}`)
+                .row
+                  .col-md-6
+                    label.mb-0 Quantity
+                    input.form-control.mb-2.edit-product-quantity(type='number' name='qty' value=`${product.quantity}` placeholder='Enter Quantity')
+                  .col-md-3
+                    label.mb-0 Status
+                    br
+                    input.edit-product-status(type='checkbox' name='status' checked=product.status || false)
+                  .col-md-3
+                    label.mb-0 Trending
+                    br
+                    input.edit-product-trending(type='checkbox' name='trending' checked=product.trending || false)
+                .col-md-12
+                  button.btn.btn-primary(type='submit' name='update_product_btn') Update
+
+block footer 
+  script(src='../js/bundled/index.js')

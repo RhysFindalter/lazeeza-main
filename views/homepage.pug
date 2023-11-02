@@ -1,0 +1,78 @@
+extends base
+
+block content 
+  main
+    section.section-hero
+      .hero-img-container
+        img.hero-img(src='imgs/sections/hero-img.jpg' alt='picture of woman wearing a necklace')
+
+      .hero-text-container
+        .hero-text-sub-container.flex
+          p.hero-text__TEXT SIL
+          p.hero-text__mulitcolorV V
+          p.hero-text__white ER
+        .flex
+          p.hero-text__white LIC
+          p.hero-text__mulitcolorI I
+          p OUS
+  
+    section.section-product-display
+
+      div
+        h2.product-display-heading OUR COLLECTION
+        p.product-display-description Perfect for all occasions
+      .product-display-container
+   
+        .product-display-card-container
+
+          p.product-display-card-heading HALO STUDS
+          img.product-display-img__left(src='imgs/sections/earring-product.jpg' alt='photo of earring')
+          a.product-display-cta(href='/jewellery')
+            p SHOP NOW
+
+        .product-display-card-container.product-display-card-container__center
+          p.product-display-card-heading.product-display-card-heading__center BLUE EVIL EYE NECKLACE
+          img.product-display-img__center(src='imgs/sections/necklace-product.jpg' alt='photo of necklace')
+          a.product-display-cta.product-cta__center(href='/jewellery')
+            p SHOP NOW
+
+        .product-display-card-container
+          p.product-display-card-heading HALO RINGS
+          img.product-display-img__right(src='imgs/sections/ring-product.jpg' alt='photo of ring')
+          a.product-display-cta(href='/jewellery')
+            p SHOP NOW
+
+    section.section-testimonial
+   
+      .testimonial-content-container
+        .testimonial-text-container
+          p.testimonial-text Simple but elegant
+          a.testimonial-cta(href='/jewellery')
+            p View our Engagement Selection
+        img.testimonial-img(src='imgs/sections/testimonial-img.jpg' alt='person wearing and showing earring')
+
+    section#section--3.featuredp
+      .featuredp-title
+        h2.featuredp-description Featured Products
+        h3.featuredp-header Who said it&apos;s hard to buy for guys...
+      
+      .featuredp-slider
+
+        each product in trendingProducts
+          .featuredp-slide
+            p.featuredp-item-name= product.name
+            a(href=`/jewellery/${product.slug}`)
+              img.featuredp-img(src=`../imgs/products/${product.image}` alt=`${product.name}`)
+            .featuredp-item-prices
+              p.featuredp-item-selling-price= `$${product.sellingPrice}`
+              p.featuredp-item-original-price= `$${product.originalPrice}`
+            p.featuredp-item-name
+
+
+        button.featuredp-slider-btn.featuredp-slider-btn__left &larr;
+        button.featuredp-slider-btn.featuredp-slider-btn__right &rarr;
+        .dots
+
+
+
+    

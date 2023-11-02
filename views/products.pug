@@ -1,0 +1,26 @@
+extends base
+
+block content 
+  h6.breadcrum
+    a.breadcrum-link(href='/')  Home
+    p.breadcrum-link /
+    a.breadcrum-link(href='/jewellery') Jewellery
+
+  .products-section-container
+    h1.products-heading All Jewellery
+    .products-container
+
+      each product in products
+        .product-container
+          div
+            a.product-link(href=`/jewellery/${product.slug}`)
+              img.product-image(src=`imgs/products/${product.image}` alt=`${product.name}`)
+              div
+                h4.product-name #{product.name}
+                h4.product-price= `Now $${product.sellingPrice}`
+                h4.product-original-price= `Reg. $${product.originalPrice}`
+                .product-btns-container
+                  a.product-btn.view-details(href=`/jewellery/${product.slug}`) View Details
+                  a.product-btn.add-to-bag(href=`/jewellery/${product.slug}`) Add to Bag
+      else 
+        h1.no-err No results. Try again later

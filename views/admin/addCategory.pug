@@ -1,0 +1,24 @@
+extends base
+
+block content
+  .container
+    .row
+      .col-md-12.mt-4
+        .card
+          .card-header
+            h4 Add Category
+          .card-body
+            form.create-category-form
+              .row
+
+                .col-md-6
+                  label(for='') Name
+                  input.form-control#categoryName(type='text' required='' name='name' maxlength='100' placeholder='Enter Category Name')
+                .col-md-6 
+                  label(for='') Image 
+                  input.form-control#categoryImage(type='file' required='' name='image')
+                .col-md-12.mt-2
+                  label(for='') Status
+                  input#categoryStatus(type='checkbox' checked='true' name='status')
+                .col-md-6
+                  button.btn.btn-primary(type='submit' name='add_category_btn') Save

@@ -1,0 +1,36 @@
+extends base
+
+block append head 
+  script(src="https://js.stripe.com/v3/")
+
+block content 
+  h6.breadcrum
+    a.breadcrum-link(href='/')  Home
+    p.breadcrum-link /
+    a.breadcrum-link(href=`/collections`) Collections
+    p.breadcrum-link /
+    a.breadcrum-link(href=`/collections/${category.slug}`)= category.name
+    p.breadcrum-link /
+    a.breadcrum-link(href=`/collections/${category.slug}/${product.slug}`)= product.name
+
+  .pview-container.product_data
+    div
+      img.pview-img(src=`../../imgs/products/${product.image}` alt=`${product.name}`)
+    div
+      h4.pview-heading= product.name
+      .pview-price-container
+        p.pview-selling-price= `NOW $${product.sellingPrice}`
+        p.pview-original-price= `REG. $${product.originalPrice}`
+
+      .incqty-container
+        .incqty-input-container
+          button.increment-btns.decrement.decrement-btn -
+          input.increment-qty.input-qty(type='text' value='1' disabled='') 
+          button.increment-btns.increment.increment-btn +
+        button.pview-btn.addToCartBtn.add-to-cart-btn#order-product(value='1' data-product-id=`${product._id}`) Add to Cart
+  
+      div
+        h6.pview-deatils-heading Product Details
+        p.pview-deatils-sub-heading= product.smallDescription
+        p.pview-deatils-description= product.description
+
